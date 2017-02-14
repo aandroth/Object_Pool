@@ -80,4 +80,12 @@ public:
 			emmissionTimer += lerp(emitRateLo, emitRateHi, rand01());
 		}
 	}
+
+	void retargetTravelTo()
+	{
+		pos.x = lerp(pos.x, travel_to.x, count);
+		pos.y = lerp(pos.y, travel_to.y, count);
+		travel_to = vec2{sfw::getMouseX(), sfw::getMouseY()};
+		count = 0;
+	}
 };

@@ -26,7 +26,17 @@ vec2 operator-(const vec2 &lhs, const vec2 &rhs)
 
 inline vec2 operator*(const vec2 &lhs, float b)
 {
-	return vec2{lhs.x * b, lhs.y * b};
+	return vec2{ lhs.x * b, lhs.y * b };
+}
+
+bool operator==(const vec2 &lhs, const vec2 &rhs)
+{
+	return (lhs.x == rhs.x && lhs.y == rhs.y);
+}
+
+bool operator!=(const vec2 &lhs, const vec2 &rhs)
+{
+	return !(lhs == rhs);
 }
 
 inline vec2 lerp(const vec2 &A, const vec2 &B, float t)

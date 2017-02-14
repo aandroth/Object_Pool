@@ -35,8 +35,9 @@ int main()
 	p.lifeSpanLo = 2;
 	p.lifeSpanHi = 4;
 
-	float timer = 0;
+	vec2 mouse_pos = vec2{ sfw::getMouseX(), sfw::getMouseY() };
 
+	float timer = 0;
 
 	//Factory factory;
 
@@ -48,6 +49,12 @@ int main()
 		sfw::drawTexture(BG, 0, 0, 1600, 1200, 0, true, 0, BLACK);
 		float t = sfw::getDeltaTime();
 		p.update(t);
+
+		if (mouse_pos != vec2{ sfw::getMouseX(), sfw::getMouseY() })
+		{
+			mouse_pos = vec2{ sfw::getMouseX(), sfw::getMouseY() };
+			p.retargetTravelTo();
+		}
 
 		//for (auto e = factory.begin(); e != factory.end();)
 		//{
