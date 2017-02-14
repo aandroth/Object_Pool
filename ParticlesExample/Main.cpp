@@ -11,8 +11,9 @@ int main()
 {
 	srand(time(NULL));
 	sfw::initContext();
-	unsigned sprite = sfw::loadTextureMap("../res/star.png");
-	unsigned BG     = sfw::loadTextureMap("../res/background.png");
+	unsigned sprite     = sfw::loadTextureMap("../res/new.png");
+	unsigned new_sprite = sfw::loadTextureMap("../res/star.png");
+	unsigned BG         = sfw::loadTextureMap("../res/background.png");
 
 	ParticleEmitter p;
 
@@ -39,7 +40,7 @@ int main()
 
 	float timer = 0;
 
-	//Factory factory;
+	Factory factory;
 
 
 	while (sfw::stepContext())
@@ -60,18 +61,35 @@ int main()
 		//{
 		//	if (e->sprite)
 		//	{
-		//		e->sprite->draw(e->trans);
+		//		e->sprite->draw(*e->trans);
 
 		//		if (e->life)
 		//		{
-		//			e->life->age(t);
 		//			if (!e->life->isAlive())
 		//			{
-		//				//factory.destroy(e);
+		//				factory.destroy(e);
 		//				continue;
 		//			}
+		//			e->life->age(t);
 		//		}
 		//	}
+
+		//	// Rigidbody physics
+		//	if (e->trans && e->rb)
+		//	{
+		//		e->rb->integrate(*e->trans, t);
+		//	}
+		//	// Controller system
+		//	if (e->cntlr && e->rb && e->trans)
+		//	{
+		//		e->cntlr->poll(*e->trans, *e->rb);
+		//	}
+		//	// Particle system
+		//	if (e->parti && e->life && e->trans && e->sprite)
+		//	{
+		//		e->parti->update(*e->life, *e->trans, *e->sprite);
+		//	}
+
 		//	++e;
 		//}
 	}

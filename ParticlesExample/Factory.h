@@ -80,6 +80,7 @@ public:
 
 		retVal->trans->pos =   vec2{ 400, 300 };
 		retVal->trans->scale = vec2{ 32, 32 };
+
 		retVal->sprite->sprite_id = sprite_id;
 		retVal->sprite->tint.ui_color = WHITE;
 		
